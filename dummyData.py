@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import random
+import os
 
 # Generate dummy transaction data
 n = 10000
@@ -23,7 +24,11 @@ df = pd.DataFrame({
     "date": dates
 })
 
-output_path = "/mnt/data/dummy_transactions_10000.csv"
+# --------------------------
+# FIX OUTPUT PATH (WINDOWS)
+# Simpan di folder script berjalan
+# --------------------------
+output_path = os.path.join(os.getcwd(), "dummy_transactions_10000.csv")
 df.to_csv(output_path, index=False)
 
 output_path
